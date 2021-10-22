@@ -142,7 +142,7 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<projectName>mapsynq</projectName>
+							<projectName>framework</projectName>
 							<outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
 							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
 							<enableFlashCharts>true</enableFlashCharts>
