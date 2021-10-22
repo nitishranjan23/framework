@@ -1,0 +1,51 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration
+	xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="CONSOLE"
+		class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d [%t] %-5p (%c:%L:%M)-%m%n# Rolling File Appender" />
+		</layout>
+	</appender>
+
+	<appender name="HTML" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs\\application.html" />
+		<layout class="org.apache.log4j.HTMLLayout">
+			<param name="LocationInfo" value="true" />
+			<param name="Title" value="Application logs" />
+		</layout>
+	</appender>
+
+	<appender name="R"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="logs\\mapsynq.log" />
+		<param name="MaxBackupIndex" value="2" />
+		<param name="MaxFileSize" value="200KB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss} %-5p (%c:%L:%M) - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="TTCC"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="logs\\mapsynq1.log" />
+		<param name="MaxBackupIndex" value="2" />
+		<param name="MaxFileSize" value="200KB" />
+		<layout class="org.apache.log4j.TTCCLayout">
+			<param name="DateFormat" value="ISO8601" />
+		</layout>
+	</appender>
+
+	<root>
+		<!-- <priority value ="debug"></priority> -->
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE"></appender-ref>
+		<!-- For generating HTML log file -->
+		<appender-ref ref="HTML"></appender-ref>
+		<appender-ref ref="R"></appender-ref>
+	</root>
+
+</log4j:configuration>
