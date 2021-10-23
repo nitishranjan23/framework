@@ -271,4 +271,10 @@ public class ActionMethods {
 	 * element.getAttribute(attribute).equalsIgnoreCase(attributeValue);
 	 * }while(match); wait. }
 	 */
+	
+	public void scrollIntoView(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+	
 }

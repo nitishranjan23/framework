@@ -28,6 +28,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageobjects.GoogleMap;
+import pageobjects.NYSEPageObject;
 import pageobjects.NavigationPages;
 import utils.PropertiesFileReader;
 
@@ -52,6 +53,7 @@ public class SetUp {
 	public static Scenario scenario;
 	static final Logger LOG = Logger.getLogger(SetUp.class);
 	private String browser = null;
+	public static NYSEPageObject nysePage;
 	
 	/**
 	 * Initialization method: Here browser is selected based on data in
@@ -140,8 +142,10 @@ public class SetUp {
 		driver.manage().window().maximize(); // Maximizing the browser window
 		googleMapPage = PageFactory.initElements(driver, GoogleMap.class);
 		navigationPage = PageFactory.initElements(driver, NavigationPages.class);
+		nysePage = PageFactory.initElements(driver, NYSEPageObject.class);
+		
 		action = new Actions(driver);
-		driver.get(properties.getProperty("URL"));
+		//driver.get(properties.getProperty("URL"));
 	}
 	
 	//In case of multiple @Before and @After, execution is happening on the order it is written.

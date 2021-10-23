@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
  * */
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/"}, 
+@CucumberOptions(features = {"src/test/resources/scenario2.feature"}, 
 					glue = {"steps"},
 					plugin = { "pretty", "json:target/cucumber.json", "html:target/cucumber-html-reports"}
 					,snippets = SnippetType.UNDERSCORE, dryRun = false, monochrome = true
